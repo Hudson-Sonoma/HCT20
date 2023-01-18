@@ -78,13 +78,10 @@ public:
   float   getPF_A();
   float   getPF_B();
   float   getPF_C();
-<<<<<<< HEAD
   uint16_t getPhaseCount_A();
   uint16_t getPhaseCount_B();
   uint16_t getPhaseCount_C();
   uint16_t getDeviceTemperatureK();
-=======
->>>>>>> bc1e099 (report per channel data)
 
   bool reset();
 
@@ -102,23 +99,17 @@ public:
   uint16_t  _rawHumidity;
   uint16_t  _rawTemperature;
 
-<<<<<<< HEAD
    uint16_t _fw_version;
-=======
->>>>>>> bc1e099 (report per channel data)
    uint16_t _raw_A_current;
    uint16_t _raw_B_current;
    uint16_t _raw_C_current;
    uint16_t _raw_A_pf;
    uint16_t _raw_B_pf;
    uint16_t _raw_C_pf;
-<<<<<<< HEAD
    uint16_t _phase_count_A;
    uint16_t _phase_count_B;
    uint16_t _phase_count_C;
    uint16_t _device_temperature_kelvin;
-=======
->>>>>>> bc1e099 (report per channel data)
 
   uint8_t   _status;
 
