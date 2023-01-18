@@ -60,8 +60,12 @@ bool AC_Current::isConnected()
 
 bool AC_Current::read()
 {
+<<<<<<< HEAD
   #define CHANNEL_DATA_LEN (12*2) // 12 uint16_t in 24 bytes
   uint8_t buffer[CHANNEL_DATA_LEN];
+=======
+  uint8_t buffer[12];
+>>>>>>> bc1e099 (report per channel data)
 
   //  TEMPERATURE
   writeCmd(SHT2x_GET_TEMPERATURE_NO_HOLD);
@@ -97,6 +101,7 @@ bool AC_Current::read()
   _rawHumidity += buffer[1];
 
 
+<<<<<<< HEAD
   writeCmd(0xD3);
   if (readBytes(CHANNEL_DATA_LEN, (uint8_t*) &buffer[0], 30) == false)
   {
@@ -135,6 +140,30 @@ bool AC_Current::read()
   _phase_count_C += buffer[19];
   _device_temperature_kelvin = buffer[20] << 8;
   _device_temperature_kelvin += buffer[21];
+=======
+  writeCmd(0xD1);
+  if (readBytes(12, (uint8_t*) &buffer[0], 30) == false)
+  {
+    return false;
+  }
+  // if (crc8(buffer, 2) != buffer[2])
+  // {
+  //   _error = SHT2x_ERR_CRC_HUM;
+  // //    return false;  // do not fail yet
+  // }
+  _raw_A_current = buffer[0] << 8;
+  _raw_A_current += buffer[1];
+  _raw_B_current = buffer[2] << 8;
+  _raw_B_current += buffer[3];
+  _raw_C_current = buffer[4] << 8;
+  _raw_C_current += buffer[5];
+  _raw_A_pf = buffer[6] << 8;
+  _raw_A_pf += buffer[7];
+  _raw_B_pf = buffer[8] << 8;
+  _raw_B_pf += buffer[9];
+  _raw_C_pf = buffer[10] << 8;
+  _raw_C_pf += buffer[11];
+>>>>>>> bc1e099 (report per channel data)
 
   _error = SHT2x_OK;
   return true;
@@ -180,6 +209,7 @@ float AC_Current::getPF_B()
 float AC_Current::getPF_C()
 {
   return (-6.0 + (125.0 / 65536.0) * _raw_C_pf)/100.0;
+<<<<<<< HEAD
 }
 
 uint16_t AC_Current::getPhaseCount_A()
@@ -198,6 +228,8 @@ uint16_t AC_Current::getPhaseCount_C()
 uint16_t AC_Current::getDeviceTemperatureK()
 {
   return _device_temperature_kelvin;
+=======
+>>>>>>> bc1e099 (report per channel data)
 }
 
 
