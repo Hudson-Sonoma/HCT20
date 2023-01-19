@@ -1,5 +1,5 @@
 # HCT20
-I2C 50/60Hz 100 amp AC current and power factor sensor module with Seeed Grove connector
+I2C 50/60Hz 100 amp AC current and power factor sensor module with Seeed Grove connector. Non-contact current measurement and non-contact power factor measurement.
 
 ![PCB](docs/LCT-v1.4_2.png)
 
